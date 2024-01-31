@@ -42,13 +42,17 @@ set_nb([
         "owns_revolver(colonel_mustard)",
         "owns_revolver(madam_rose)",
 
-        "suspect(x):- man(x), \+victim(x)",
-        "suspect(x):- woman(x), \+victim(x)",
+        "suspect(x) :- man(x)",
+        "suspect(x) :- woman(x)",
+
+
+
+        "guilty(x): suspect(x), \+victim(x), "
 
 
     ])
 
-
+print(set_nb.query(pl.Expr("suspect(colonel_mustard)")))
 
 
 
