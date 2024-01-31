@@ -41,4 +41,14 @@ set_nb([
         "owns_revolver(reverend_green)",
         "owns_revolver(colonel_mustard)",
         "owns_revolver(madam_rose)",
-        ])
+
+        "suspect(x):- man(x), \+victim(x)",
+        "suspect(x):- woman(x), \+victim(x)",
+
+
+    ])
+
+
+
+
+
