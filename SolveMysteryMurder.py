@@ -47,22 +47,32 @@ set_nb([
         "owns_revolver(colonel_mustard)",
         "owns_revolver(madam_rose)",
 
-        "suspect(x) :- man(x)",
-        "suspect(x) :- woman(x)",
+        "has_alibi(X):- suspect(X), playing_cards(X)"
 
-        "access_to_revolver(x, y): owns_revolver(x), "
+        "suspect(X) :- man(X)",
+        "suspect(X) :- woman(X)",
 
-        "went_outside(x) :- smokers(x)",
-        "went_outside(x) :- played_golf(x)",
-        "went_outside(x) :- gardening(x)", 
+        # "access_to_revolver(x, y): owns_revolver(x), "
 
-        "share_room(x, y):- room_number(z), owns_revolver(x, z), stay_in(y, z), neq(x, y)"
-        "guilty(x): suspect(x), \+victim(x), "
+        "went_outside(X) :- smokers(X)",
+        "went_outside(X) :- played_golf(X)",
+        "went_outside(X) :- gardening(X)", 
+
+        "share_room(X, Y):- room_number(Z), stay_in(X, Z), stay_in(Y, Z), neq(X, Y)",
+        "has_access_to_revolver(X) :- owns_revolver(X)",
+        "has_access_to_revolver(X) :- share_room(X, Y), owns_revolver(Y)",
+        "guilty(X) :- suspect(X), has_access_to_revolver(X), went_outside(X)",
 
 
     ])
 
-print(set_nb.query(pl.Expr("suspect(colonel_mustard)")))
+guilty_query = "guilty(X)"
+result = set_nb.query(guilty_query)
+print("Guilty individuals:")
+for solution in result:
+    print(solution['X'])
+
+# print(set_nb.query(pl.Expr("guilty(mrs_white, reverend_green)")))
 
 
 
