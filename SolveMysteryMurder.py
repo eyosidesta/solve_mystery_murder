@@ -28,12 +28,17 @@ set_nb([
         "room_number(reverend_green, room_24)",
         "room_number(colonel_mustard, room_24)",
 
-        "stayed_in_doors(professor_plum)",
-        "stayed_in_doors(miss_scarlett)",
-        "stayed_in_doors(madam_rose)",
-        "stayed_in_doors(mrs_white)",
+        "playing_cards(colonel_mustard)",
+        "playing_cards(colonel_mustard)",
+        "playing_cards(colonel_mustard)",
 
         "gardening(mrs_white)",
         "gardening(reverend_green)",
 
+        "played_golf(colonel_mustard)",
+        "played_golf(professor_plum)",
+
+        "owns_revolver(reverend_green)",
+        "owns_revolver(colonel_mustard)",
+        "owns_revolver(madam_rose)",
         ])
