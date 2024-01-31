@@ -19,14 +19,19 @@ set_nb([
         "smokers(mrs_peacock)"
         "smokers(mrs_white)"
 
-        "room_number(miss_scarlett, room_21)",
-        "room_number(madam_rose, room_21)",
-        "room_number(dr_black, room_22)",
-        "room_number(professor_plum, room_22)",
-        "room_number(mrs_peacock, room_23)",
-        "room_number(mrs_white, room_23)",
-        "room_number(reverend_green, room_24)",
-        "room_number(colonel_mustard, room_24)",
+        "stay_in(miss_scarlett, room_21)",
+        "stay_in(madam_rose, room_21)",
+        "stay_in(dr_black, room_22)",
+        "stay_in(professor_plum, room_22)",
+        "stay_in(mrs_peacock, room_23)",
+        "stay_in(mrs_white, room_23)",
+        "stay_in(reverend_green, room_24)",
+        "stay_in(colonel_mustard, room_24)",
+
+        "room_number(room_21)",
+        "room_number(room_22)",
+        "room_number(room_23)",
+        "room_number(room_24)",
 
         "playing_cards(colonel_mustard)",
         "playing_cards(colonel_mustard)",
@@ -45,8 +50,13 @@ set_nb([
         "suspect(x) :- man(x)",
         "suspect(x) :- woman(x)",
 
+        "access_to_revolver(x, y): owns_revolver(x), "
 
+        "went_outside(x) :- smokers(x)",
+        "went_outside(x) :- played_golf(x)",
+        "went_outside(x) :- gardening(x)", 
 
+        "share_room(x, y):- room_number(z), owns_revolver(x, z), stay_in(y, z), neq(x, y)"
         "guilty(x): suspect(x), \+victim(x), "
 
 
